@@ -1,7 +1,50 @@
 body{
-  background-color: blanchedalmond;
+  background-image: url(honeycomb.png);
+background-position: center;
+background-attachment: fixed;
+background-repeat: repeat;
+height: 50vh;
+font-family: 'Merriweather', serif;
 }
 
 .disabled{
   pointer-events: none;
+}
+
+
+
+.resize{
+  height: 10em;
+}
+
+.card{
+  opacity: 90%;
+  box-shadow: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+button:hover{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: .6s;
+}
+
+.text-shadow{
+  text-shadow: 1px 1px black;
+}
+@media only screen and (max-width: 600px){
+  .size{
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .size{
+    width: 250px;
+    height: 300px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
 }

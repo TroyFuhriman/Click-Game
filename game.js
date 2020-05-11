@@ -1,4 +1,4 @@
-let cheese = 0;
+let honey = 0;
 let collectionInterval = 0
 let mods = 0
 let automod = 0
@@ -7,12 +7,12 @@ let user = {
   autotool: []
 }
 let clickUpgrades = {
-  pickaxe: {
+  scraper: {
     price: 10,
     quantity: 0,
     multiplier: 1,
   },
-  drill: {
+  hive: {
     price: 20,
     quantity: 0,
     multiplier: 2,
@@ -20,7 +20,7 @@ let clickUpgrades = {
 }
 
 let automaticUpgrades = {
-  rover: {
+  beekeeper: {
     price: 60,
     quantity: 0,
     multiplier: 20
@@ -33,18 +33,18 @@ let automaticUpgrades = {
 }
 
 function mine() {
-  cheese++
+  honey++
   if (mods >= 1) {
-    cheese += mods
+    honey += mods
   }
   update()
 };
 
 function update() {
-  document.getElementById("count").innerHTML = "amount of cheese = " + cheese.toString()
-  drill()
-  pickaxe()
-  rover()
+  document.getElementById("count").innerHTML = "amount of honey = " + honey.toString()
+  hive()
+  scraper()
+  beekeeper()
   robots()
 };
 
@@ -55,7 +55,7 @@ function addClickTool(tools) {
   console.log(clickUpgrades[tools].multiplier);
   console.log(mods);
   document.getElementById("modifier").innerText = "Modifier to click + " + mods.toString()
-  cheese -= clickUpgrades[tools].price
+  honey -= clickUpgrades[tools].price
   clickUpgrades[tools].price += Math.floor(Math.random() * clickUpgrades[tools].price);
   update();
   return mods;
@@ -66,59 +66,61 @@ function addAutoTool(fun) {
   user.autotool.push(automaticUpgrades[fun])
   automod += automaticUpgrades[fun].multiplier
   document.getElementById("auto").innerText = "auto mod " + automod.toString()
-  cheese -= automaticUpgrades[fun].price
+  honey -= automaticUpgrades[fun].price
   automaticUpgrades[fun].price += Math.floor(Math.random() * automaticUpgrades[fun].price);
   update();
   return automod;
 
 }
-function pickaxe() {
-  if (cheese < clickUpgrades.pickaxe.price) {
-    document.getElementById("pickaxe").classList.add("disabled")
+function scraper() {
+  if (honey < clickUpgrades.scraper.price) {
+    document.getElementById("scraper").classList.add("disabled")
   }
   else {
-    document.getElementById("pickaxe").classList.remove("disabled")
+    document.getElementById("scraper").classList.remove("disabled")
   }
-  document.getElementById("pickaxe").innerText = "Pickaxe = " + clickUpgrades.pickaxe.price
-  document.getElementById("count-1").innerText = clickUpgrades.pickaxe.quantity.toString()
+  document.getElementById("scraper").innerText = clickUpgrades.scraper.price.toString()
+  document.getElementById("count-1").innerText = clickUpgrades.scraper.quantity.toString()
 }
 
-function drill() {
-  if (cheese < clickUpgrades.drill.price) {
-    document.getElementById("drill").classList.add("disabled")
+function hive() {
+  if (honey < clickUpgrades.hive.price) {
+    document.getElementById("hive").classList.add("disabled")
   }
   else {
-    document.getElementById("drill").classList.remove("disabled")
+    document.getElementById("hive").classList.remove("disabled")
   }
-  document.getElementById("drill").innerText = "drill = " + clickUpgrades.drill.price
-  document.getElementById("count-1").innerText = clickUpgrades.pickaxe.quantity.toString()
+  document.getElementById("hive").innerText = clickUpgrades.hive.price.toString()
+  document.getElementById("count-2").innerText = clickUpgrades.hive.quantity.toString()
 }
-function rover() {
-  if (cheese < automaticUpgrades.rover.price) {
-    document.getElementById("rover").classList.add("disabled")
+function beekeeper() {
+  if (honey < automaticUpgrades.beekeeper.price) {
+    document.getElementById("beekeeper").classList.add("disabled")
   }
   else {
-    document.getElementById("rover").classList.remove("disabled")
+    document.getElementById("beekeeper").classList.remove("disabled")
   }
-  document.getElementById("rover").innerText = "rover = " + automaticUpgrades.rover.price
+  document.getElementById("beekeeper").innerText = automaticUpgrades.beekeeper.price.toString()
+  document.getElementById("count-3").innerText = automaticUpgrades.beekeeper.quantity.toString()
 }
 function robots() {
-  if (cheese < automaticUpgrades.robots.price) {
+  if (honey < automaticUpgrades.robots.price) {
     document.getElementById("robots").classList.add("disabled")
   }
   else {
     document.getElementById("robots").classList.remove("disabled")
   }
-  document.getElementById("robots").innerText = "robots = " + automaticUpgrades.robots.price
+  document.getElementById("robots").innerText = automaticUpgrades.robots.price.toString()
+  document.getElementById("count-4").innerText = automaticUpgrades.robots.quantity.toString()
 }
 
 
-drill()
-pickaxe()
-rover()
+hive()
+scraper()
+beekeeper()
 robots()
 update();
 
 
-setInterval(function () { cheese += automod; }, 3000);
+setInterval(function () { honey += automod; }, 3000);
 setInterval(function () { update(); }, 3000);

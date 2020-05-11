@@ -6,47 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="solar.css">
   <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <title>Click Game</title>
 </head>
 
-<body>
-  <header class="container-fluid">
+<body class="bg-secondary">
+  <header class="container-fluid text-light text-shadow ">
     <div class="row bg-primary">
-      <div class="col text-center ">
+      <div class="col text-center border border-dark">
         <h1>
-          Clicker Game
+          Honey Harvest
         </h1>
       </div>
     </div>
   </header>
   <main class="container">
-    <div class="row text-center">
+    <div class="row text-center justify-content-around">
       <div class="col-12">
-        <img onclick=mine() src="http://placekitten.com/200/300" alt="">
+        <img class="size border border-dark m-5" onclick=mine() src=beehive.jpg
+          alt="Photo by Shelby Cohron on Unsplash">
       </div>
-      <div id="count" class="col-12"></div>
-      <div id="count-1" class="col-3"></div>
-      <div id="count-2" class="col-3"></div>
-      <div id="count-3" class="col-3"></div>
-      <div id="count-4" class="col-3"></div>
-      <div class="col-3">
-        <button id="pickaxe" onclick="addClickTool('pickaxe')" class="btn btn-success">pickaxe</button>
+      <div id="count" class="col-12 mt-3 mb-3 text-light text-shadow"></div>
+
+      <div class="card bg-light col-md-2 col-6 pt-1" style="width: 18rem;">
+        <img class="resize" src="scraper.jpg" class="card-img-top" alt="...">
+        <div class="card-body ">
+          <h5 class="card-title">Honey Scraper</h5>
+          <p id="count-1" class="card-text"></p>
+          <button id="scraper" onclick="addClickTool('scraper')" class="btn btn-success"></button>
+        </div>
       </div>
-      <div class="col-3">
-        <button id="drill" onclick="addClickTool('drill')" class="btn btn-success">Drill</button>
+      <div class="card col-md-2 col-6 bg-light pt-1" style="width: 18rem;">
+        <img class="resize" src="hive.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">New Hive</h5>
+          <p id="count-2" class="card-text"></p>
+          <button id="hive" onclick="addClickTool('hive')" class="btn btn-success mt-4"></button>
+        </div>
       </div>
-      <div class="col-3">
-        <button id="rover" onclick="addAutoTool('rover')" class="btn btn-success">rover</button>
+      <div class="card col-md-2 col-6 bg-light pt-1" style="width: 18rem;">
+        <img class="resize" src="beekeeper.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Hire Beekeeper</h5>
+          <p id="count-3" class="card-text"></p>
+          <button id="beekeeper" onclick="addAutoTool('beekeeper')" class="btn btn-success"></button>
+        </div>
       </div>
-      <div class="col-3">
-        <button id="robots" onclick="addAutoTool('robots')" class="btn btn-success">robots</button>
+      <div class="card col-md-2 col-6 bg-light pt-1" style="width: 18rem;">
+        <img class="resize" src="robot.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Robots!</h5>
+          <p id="count-4" class="card-text"></p>
+          <button id="robots" onclick="addAutoTool('robots')" class="btn btn-success mt-4"></button>
+        </div>
       </div>
-      <div class="col-12 ">
+    </div>
+    <div class="row text-center">
+      <div class="card col-6 bg-light">
+        <div class="card-body">
+          <span id="modifier"></span>
+        </div>
+      </div>
+      <div class="card col-6 bg-light">
+        <div class="card-body">
+          <span id="auto"></span>
+        </div>
       </div>
     </div>
   </main>
-
   <script src="game.js"></script>
 </body>
 
