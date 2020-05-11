@@ -8,25 +8,25 @@ let user = {
 }
 let clickUpgrades = {
   scraper: {
-    price: 10,
+    price: 30,
     quantity: 0,
     multiplier: 1,
   },
   hive: {
-    price: 20,
+    price: 200,
     quantity: 0,
-    multiplier: 2,
+    multiplier: 5,
   }
 }
 
 let automaticUpgrades = {
   beekeeper: {
-    price: 60,
+    price: 600,
     quantity: 0,
     multiplier: 20
   },
   robots: {
-    price: 200,
+    price: 2000,
     quantity: 0,
     multiplier: 100
   }
@@ -46,15 +46,14 @@ function update() {
   scraper()
   beekeeper()
   robots()
+  winner()
 };
 
 function addClickTool(tools) {
   clickUpgrades[tools].quantity++
   user.items.push(clickUpgrades[tools]);
   mods += clickUpgrades[tools].multiplier;
-  console.log(clickUpgrades[tools].multiplier);
-  console.log(mods);
-  document.getElementById("modifier").innerText = "Modifier to click + " + mods.toString()
+  document.getElementById("modifier").innerText = mods.toString() + " Honey Added to every Collection"
   honey -= clickUpgrades[tools].price
   clickUpgrades[tools].price += Math.floor(Math.random() * clickUpgrades[tools].price);
   update();
@@ -65,7 +64,7 @@ function addAutoTool(fun) {
   automaticUpgrades[fun].quantity++
   user.autotool.push(automaticUpgrades[fun])
   automod += automaticUpgrades[fun].multiplier
-  document.getElementById("auto").innerText = "auto mod " + automod.toString()
+  document.getElementById("auto").innerText = automod.toString() + " Honey Automatically added every 3 seconds"
   honey -= automaticUpgrades[fun].price
   automaticUpgrades[fun].price += Math.floor(Math.random() * automaticUpgrades[fun].price);
   update();
@@ -113,13 +112,25 @@ function robots() {
   document.getElementById("robots").innerText = automaticUpgrades.robots.price.toString()
   document.getElementById("count-4").innerText = automaticUpgrades.robots.quantity.toString()
 }
-
+function winner() {
+  if (honey >= 1000000) {
+    document.getElementById("winner").innerHTML = `<div class = "card bg-light col"> <i class=" far fa-spin fa-star"></i> 1000000!! <i class="far fa-spin fa-star"></i> </div>`
+  }
+}
 
 hive()
 scraper()
 beekeeper()
 robots()
 update();
+
+function saveHoney() {
+  window.localStorage.setItem("user", JSON.stringify(user))
+  update()
+}
+function loadHoney() {
+  let Userdata = JSON.parse(window.localStorage.getItem("user"))
+}
 
 
 setInterval(function () { honey += automod; }, 3000);
