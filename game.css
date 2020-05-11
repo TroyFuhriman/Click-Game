@@ -37,13 +37,14 @@ button:hover{
     height: 150px;
     cursor: pointer;
     border-radius: 50%;
+    top: unset;
   }
 }
 
 @media only screen and (min-width: 600px) {
   .size{
-    width: 250px;
-    height: 300px;
+    width: 200px;
+    height: 250px;
     cursor: pointer;
     border-radius: 50%;
   }
@@ -63,7 +64,8 @@ button:hover{
 @media only screen and (max-width: 600px) {
   .sm-1-hidden {
     max-height: 22em;
-    font-size: xx-small;
+    font-size: xx-small !important;
   }
 }
+
 

@@ -14,9 +14,9 @@
 </head>
 
 <body class="bg-secondary">
-  <header class="container-fluid text-light text-shadow">
+  <header class="container-fluid text-light text-shadow sm-hidden">
     <div class="row bg-primary">
-      <div class="col text-center border border-dark box-shadow">
+      <div class="col text-center border border-dark box-shadow ">
         <h1>
           Honey Harvest
         </h1>
@@ -26,13 +26,13 @@
   <main class="container">
     <div class="row text-center justify-content-around">
       <div class="col-12">
-        <img class="size border border-dark m-5 box-shadow hover" onclick=mine() src=beehive.jpg
+        <img class="size border border-dark m-md-0 m-lg-5 m-0 box-shadow hover" onclick=mine() src=beehive.jpg
           alt="Photo by Shelby Cohron on Unsplash">
       </div>
       <div id="winner"></div>
-      <div id="count" class="col-12 mt-3 mb-3 text-light text-shadow"></div>
+      <div id="count" class="col-12 mt-lg-3 mt-md-0 mb-3 text-light text-shadow"></div>
 
-      <div class="card bg-light col-md-2 col-6 pt-3 sm-1-hidden" style="width: 18rem;">
+      <div class="card bg-light col-md-2 col-6 pt-3 sm-1-hidden justify-content-around" style="width: 18rem;">
         <img class="resize sm-hidden" src="scraper.jpg" class="card-img-top" alt="...">
         <div class="card-body ">
           <h5 class="card-title">Honey Scraper</h5>
@@ -41,16 +41,16 @@
           <button id="scraper" onclick="addClickTool('scraper')" class="btn btn-success"></button>
         </div>
       </div>
-      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden" style="width: 18rem;">
+      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden justify-content-around" style="width: 18rem;">
         <img class="resize sm-hidden" src="hive.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">New Hive</h5>
           <p>Increases Collection by 5</p>
           <p id="count-2" class="card-text"></p>
-          <button id="hive" onclick="addClickTool('hive')" class="btn btn-success mt-4"></button>
+          <button id="hive" onclick="addClickTool('hive')" class="btn btn-success mt-0 mt-md-4"></button>
         </div>
       </div>
-      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden" style="width: 18rem;">
+      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden justify-content-between" style="width: 18rem;">
         <img class="resize sm-hidden" src="beekeeper.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Hire Beekeeper</h5>
@@ -59,7 +59,7 @@
           <button id="beekeeper" onclick="addAutoTool('beekeeper')" class="btn btn-success"></button>
         </div>
       </div>
-      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden" style="width: 18rem;">
+      <div class="card col-md-2 col-6 bg-light pt-3 sm-1-hidden justify-content-around" style="width: 18rem;">
         <img class="resize sm-hidden" src="robot.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Robots!</h5>
